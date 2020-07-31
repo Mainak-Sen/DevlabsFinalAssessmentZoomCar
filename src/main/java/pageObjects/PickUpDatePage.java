@@ -20,17 +20,6 @@ public boolean is_PickupPointdiplayed() {
 }
 
 public PickUpDatePage select_tomorrow() {
-		/*
-		 * WebElement current_date_ele=findElementBy(Locators.valueOf("CSS_SELECTOR"),
-		 * currentDatecss); String
-		 * currentDate=getElementText(current_date_ele).split("\\s+")[1];
-		 * 
-		 * System.out.println(currentDate); List<WebElement>
-		 * days=findElementsBy(Locators.valueOf("CSS_SELECTOR"),daysCss); for(WebElement
-		 * day:days) { String actualdate=getElementText(day).split("\\s+")[1];
-		 * if(actualdate.equals(String.valueOf((Integer.valueOf(currentDate)+1)))) {
-		 * click(day); break; } }
-		 */
 	WebElement tomorrow_date_ele=findElementBy(Locators.valueOf("XPATH"),tomorrowDatexpath);
 	click(tomorrow_date_ele);
 	return this;
