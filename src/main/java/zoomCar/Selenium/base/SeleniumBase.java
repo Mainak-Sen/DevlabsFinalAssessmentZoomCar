@@ -2,12 +2,16 @@ package zoomCar.Selenium.base;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+
+import org.apache.logging.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.InvalidElementStateException;
@@ -38,13 +42,14 @@ public class SeleniumBase implements Browser, Element{
 	protected static WebDriverWait wait;
 	protected static String PageTitle ;
 	protected Actions builder;
-	
+	protected static Logger log = LogManager.getLogger(SeleniumBase.class.getName());
 	
 	public void get_page_title() {
 		PageTitle=driver.getTitle();
 	}
 	public void scroll_into_view(WebElement ele) {
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();",ele);
+		log.debug("Successfully scrolled into view to the max-price web-element : "+ele);
 	}
 	public void scrollQuarter() {
 		((JavascriptExecutor) driver).executeScript("window.scrollBy(0,250)");
@@ -58,7 +63,8 @@ public class SeleniumBase implements Browser, Element{
 	}
 	
 	public void highlight_element(WebElement ele) {
-		((JavascriptExecutor)driver).executeScript("arguments[0].style.border='2px solid red'",ele);
+		((JavascriptExecutor)driver).executeScript("arguments[0].style.border='2px solid blue'",ele);
+		log.info("Successfully highlighted max  price element in blue: "+ele);
 	}
 	public void scroll_until_bottom() {
 		((JavascriptExecutor) driver)
@@ -75,34 +81,31 @@ public class SeleniumBase implements Browser, Element{
 				if(ele.isEnabled())
 				{
 					ele.click();
+					log.debug("Successfully clicked element: "+ele);
 				}
 				else
 				{
 					((JavascriptExecutor) driver).executeScript("arguments[0].click();",ele);
+					log.debug("Successfully clicked element: "+ele);
 				}
 			}
-			System.out.println("The element: "+ele+" has been clicked  successfully ");
+			//System.out.println("The element: "+ele+" has been clicked  successfully ");
+			log.debug("The element: "+ele+" has been clicked  successfully ");
 		} catch (TimeoutException e) {
-		   System.err.println("Timeout Exception occured,retrying to click element: "+ele);
+		   //System.err.println("Timeout Exception occured,retrying to click element: "+ele);
+		   log.debug("Timeout Exception occured,retrying to click element: "+ele);
 		   builder.moveToElement(ele).pause(2000).click().perform();
-		   System.out.println("Successfully clicked after retrying");
+		  // System.out.println("Successfully clicked after retrying");
+		   log.debug("Successfully clicked after retrying");
 		}
 		catch (StaleElementReferenceException e) {
-			System.err.println("The elment: "+ele+" to be clicked appears to be stale,refer screesnhot attached ");
+			//System.err.println("The elment: "+ele+" to be clicked appears to be stale,refer screesnhot attached ");
+			log.error("The elment: "+ele+" to be clicked appears to be stale,refer screesnhot attached ");
 			}
 		catch (Exception e) {
-			System.err.println("Exception occured while clicking element: "+ele+"\n"+e.getMessage());
+			//System.err.println("Exception occured while clicking element: "+ele+"\n"+e.getMessage());
+			log.error("Exception occured while clicking element: "+ele+"\n"+e.getMessage());
 			}
-		 finally
-		 {
-			 File src=driver.getScreenshotAs(OutputType.FILE);
-			   try {
-				FileHandler.copy(src, new File("./Screenshots/clickSnap.png"));
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				System.err.println("I/O Exception occured whie trying to copy screenshot file: "+"\n"+e1.getMessage());
-			}
-		 }
 	}
 
 	public void append(WebElement ele, String data) {
@@ -195,11 +198,13 @@ public class SeleniumBase implements Browser, Element{
 		String text="";
 		try {
 			text=ele.getText();
-			System.out.println("Element "+ele+" text: "+text+"extracted successfully" );
+			//System.out.println("Element "+ele+" text: "+text+"extracted successfully" );
+			log.debug("Element "+ele+" text: "+text+"extracted successfully" );
 		}
 		catch(Exception e)
 		{
-			System.err.println("Exception occured while extracting text from element: "+ele+"\n"+e.getMessage());
+			//System.err.println("Exception occured while extracting text from element: "+ele+"\n"+e.getMessage());
+			log.error("Exception occured while extracting text from element: "+ele+"\n"+e.getMessage());
 		}
 		return text;
 	}
@@ -365,17 +370,20 @@ public class SeleniumBase implements Browser, Element{
 		try
 		{if(ele.isDisplayed())
 		{
-			System.out.println("Element "+ele+" is displayed in DOM");
+			//System.out.println("Element "+ele+" is displayed in DOM");
+			log.debug("Element "+ele+" is displayed in DOM");
 			return true;
 		}
 		else
 		{
-			System.out.println("Element "+ele+" is not displayed in DOM");
+			//System.err.println("Element "+ele+" is not displayed in DOM");
+			log.error("Element "+ele+" is not displayed in DOM");
 		}
 		}
 		catch(Exception e)
 		{
-			System.err.println("Exception occured while checking visibility of element "+ele+"\n"+e.getMessage());
+			//System.err.println("Exception occured while checking visibility of element "+ele+"\n"+e.getMessage());
+			log.error("Exception occured while checking visibility of element "+ele+"\n"+e.getMessage());
 		}
 		return false;
 	}
@@ -443,7 +451,9 @@ public class SeleniumBase implements Browser, Element{
 	public void startApp(String url) {
 		try {
 			ChromeOptions options = new ChromeOptions(); 
-			options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
+			//options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
+			options.setExperimentalOption("useAutomationExtension", false);
+			options.setExperimentalOption("excludeSwitches",Collections.singletonList("enable-automation"));
 			System.setProperty("webdriver.chrome.driver","./Drivers/chromedriver.exe");
 			SeleniumBase.driver = new ChromeDriver(options);
 			wait=new WebDriverWait(driver,30);
@@ -451,10 +461,12 @@ public class SeleniumBase implements Browser, Element{
 			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			driver.get(url);
-			System.out.println("The browser has been launched");
+			//System.out.println("The browser has been launched");
+			log.debug("The browser has been launched");
 		}
 		catch (Exception e) {
-			System.err.println("Browser could not launch "+e.getMessage());
+			//System.err.println("Browser could not launch "+e.getMessage());
+			log.error("Browser could not launch "+e.getMessage());
 		}
 	}
 
@@ -511,15 +523,18 @@ public class SeleniumBase implements Browser, Element{
 			case TAG_NAME:
 				return driver.findElement(By.tagName(value));
 			default:
-				System.err.println("Locator type is wrong");
+				//System.err.println("Locator type is wrong");
+				log.error("Locator type is wrong");
 				break;
 			}
 		} 
 		catch (NoSuchElementException e) {
-			System.err.println("Element not found");
+			//System.err.println("Element not found");
+			log.error("Element not found "+e.getMessage());
 		}
 		catch (Exception e) {
-			System.err.println("Element with locator: "+locator_type+"not found with value: "+value+"\n"+e.getMessage());
+			//System.err.println("Element with locator: "+locator_type+"not found with value: "+value+"\n"+e.getMessage());
+			log.error("Element with locator: "+locator_type+"not found with value: "+value+"\n"+e.getMessage());
 		}
 		return null;
 		
@@ -548,12 +563,14 @@ public class SeleniumBase implements Browser, Element{
 			case TAG_NAME:
 				return driver.findElements(By.tagName(value));
 			default:
-				System.err.println("Locator type is wrong");
+				//System.err.println("Locator type is wrong");
+				log.error("Locator type is wrong");
 				break;
 			}
 			}
 			catch (Exception e) {
-				System.err.println("Element with locator: "+locator_type+"not found with value: "+value+"\n"+e.getMessage());
+				//System.err.println("Elements with locator: "+locator_type+"not found with value: "+value+"\n"+e.getMessage());
+				log.error("Elements with locator: "+locator_type+"not found with value: "+value+"\n"+e.getMessage());
 			}
 		return null;
 	}
@@ -805,12 +822,14 @@ public class SeleniumBase implements Browser, Element{
 		
 	    if(driver.getCurrentUrl().equals(url))
 		{   
-			System.out.println("The given url: "+url+" matched successfully");
+			//System.out.println("The given url: "+url+" matched successfully");
+			log.debug("The given url: "+url+" matched successfully");
 			return true;
 		}
 		else
 		{
-			System.err.println("Failed to match with the given url: "+url);
+			//System.err.println("Failed to match with the given url: "+url);
+			log.error("Failed to match with the given url: "+url);
 			return false;
 		}
 		
@@ -847,11 +866,13 @@ public class SeleniumBase implements Browser, Element{
 		// TODO Auto-generated method stub
 		try{
 			driver.quit();
-			System.out.println("Successfully closed all the browsers");
+			//System.out.println("Successfully closed all the browsers");
+			log.debug("Successfully closed all the browsers");
 		}
 		catch(Exception e)
 		{
-			System.err.println("Browsers cannot be closed: "+ e.getMessage());
+			//System.err.println("Browsers cannot be closed: "+ e.getMessage());
+			log.error("Browsers cannot be closed: "+ e.getMessage());
 		}
 
 	}

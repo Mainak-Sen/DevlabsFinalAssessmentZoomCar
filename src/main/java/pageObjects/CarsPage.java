@@ -28,8 +28,8 @@ List<WebElement> car_details= findElementsBy(Locators.valueOf("CSS_SELECTOR"),ca
 WebElement max_price_ele=null;
 for(int i=0;i<car_prices.size();i++)
 {
-	String car_price=car_prices.get(i).getText().replaceAll(",","").replaceAll("\\s+","");
-	System.out.println("The extracted car price is:"+car_price);
+	String car_price=getElementText(car_prices.get(i)).replaceAll(",","").replaceAll("\\s+","");
+	log.info("The extracted car price is:"+car_price);
 	if(Integer.valueOf(car_price.substring(1))>max) {
 		max=Integer.valueOf(car_price.substring(1));
 		max_price_ele=car_prices.get(i)	;
@@ -40,10 +40,12 @@ scroll_into_view(max_price_ele);
 highlight_element(max_price_ele);
 Thread.sleep(3000);
 System.out.println("The max posible price of available cars is: "+max_price);
+log.info("The max posible price of available cars is: "+max_price);
 for(int j=0;j<car_details.size();j++)
 {
-	if(j==max_index) {max_car_name=car_details.get(j).getText();
+	if(j==max_index) {max_car_name=getElementText(car_details.get(j));
 	System.out.println("The car with the highest price is: "+max_car_name);
+	log.info("The car with the highest price is: "+max_car_name);
 	break;
 	}
 }

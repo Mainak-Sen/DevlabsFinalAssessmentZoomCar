@@ -1,0 +1,45 @@
+02 08 2020 12:06:22.845 [main] DEBUG zoomCar.Selenium.base.SeleniumBase - The browser has been launched
+02 08 2020 12:06:22.867 [main] DEBUG zoomCar.Selenium.base.SeleniumBase - The given url: https://www.zoomcar.com/chennai/ matched successfully
+02 08 2020 12:06:26.471 [main] DEBUG zoomCar.Selenium.base.SeleniumBase - Successfully clicked element: [[ChromeDriver: chrome on WINDOWS (e25b2e6617786fa1765133e3d26b79bc)] -> xpath: //a[@class='search']]
+02 08 2020 12:06:26.471 [main] DEBUG zoomCar.Selenium.base.SeleniumBase - The element: [[ChromeDriver: chrome on WINDOWS (e25b2e6617786fa1765133e3d26b79bc)] -> xpath: //a[@class='search']] has been clicked  successfully 
+02 08 2020 12:06:27.271 [main] DEBUG zoomCar.Selenium.base.SeleniumBase - Element [[ChromeDriver: chrome on WINDOWS (e25b2e6617786fa1765133e3d26b79bc)] -> xpath: //div[text()='STARTING POINT']] is displayed in DOM
+02 08 2020 12:06:27.883 [main] DEBUG zoomCar.Selenium.base.SeleniumBase - Element [[ChromeDriver: chrome on WINDOWS (e25b2e6617786fa1765133e3d26b79bc)] -> css selector: div.items] text: Thuraipakkamextracted successfully
+02 08 2020 12:06:27.957 [main] DEBUG zoomCar.Selenium.base.SeleniumBase - Element [[ChromeDriver: chrome on WINDOWS (e25b2e6617786fa1765133e3d26b79bc)] -> css selector: div.items] text: Nelson Manickam Roadextracted successfully
+02 08 2020 12:06:28.424 [main] DEBUG zoomCar.Selenium.base.SeleniumBase - Element [[ChromeDriver: chrome on WINDOWS (e25b2e6617786fa1765133e3d26b79bc)] -> css selector: div.items] text: Kodambakkamextracted successfully
+02 08 2020 12:06:28.463 [main] DEBUG zoomCar.Selenium.base.SeleniumBase - Element [[ChromeDriver: chrome on WINDOWS (e25b2e6617786fa1765133e3d26b79bc)] -> css selector: div.items] text: Porurextracted successfully
+02 08 2020 12:06:28.957 [main] DEBUG zoomCar.Selenium.base.SeleniumBase - Successfully clicked element: [[ChromeDriver: chrome on WINDOWS (e25b2e6617786fa1765133e3d26b79bc)] -> css selector: div.items]
+02 08 2020 12:06:28.958 [main] DEBUG zoomCar.Selenium.base.SeleniumBase - The element: [[ChromeDriver: chrome on WINDOWS (e25b2e6617786fa1765133e3d26b79bc)] -> css selector: div.items] has been clicked  successfully 
+02 08 2020 12:06:30.103 [main] DEBUG zoomCar.Selenium.base.SeleniumBase - Successfully clicked element: [[ChromeDriver: chrome on WINDOWS (e25b2e6617786fa1765133e3d26b79bc)] -> xpath: //button[text()='Next']]
+02 08 2020 12:06:30.103 [main] DEBUG zoomCar.Selenium.base.SeleniumBase - The element: [[ChromeDriver: chrome on WINDOWS (e25b2e6617786fa1765133e3d26b79bc)] -> xpath: //button[text()='Next']] has been clicked  successfully 
+02 08 2020 12:06:30.627 [main] DEBUG zoomCar.Selenium.base.SeleniumBase - Element [[ChromeDriver: chrome on WINDOWS (e25b2e6617786fa1765133e3d26b79bc)] -> xpath: //div[text()='PICKUP TIME']] is displayed in DOM
+02 08 2020 12:06:31.261 [main] DEBUG zoomCar.Selenium.base.SeleniumBase - Successfully clicked element: [[ChromeDriver: chrome on WINDOWS (e25b2e6617786fa1765133e3d26b79bc)] -> xpath: //div[contains(@class,'day') and contains(@class,'picked')]/following-sibling::div[1]]
+02 08 2020 12:06:31.261 [main] DEBUG zoomCar.Selenium.base.SeleniumBase - The element: [[ChromeDriver: chrome on WINDOWS (e25b2e6617786fa1765133e3d26b79bc)] -> xpath: //div[contains(@class,'day') and contains(@class,'picked')]/following-sibling::div[1]] has been clicked  successfully 
+02 08 2020 12:06:31.871 [main] DEBUG zoomCar.Selenium.base.SeleniumBase - Successfully clicked element: [[ChromeDriver: chrome on WINDOWS (e25b2e6617786fa1765133e3d26b79bc)] -> xpath: //button[text()='Next']]
+02 08 2020 12:06:31.871 [main] DEBUG zoomCar.Selenium.base.SeleniumBase - The element: [[ChromeDriver: chrome on WINDOWS (e25b2e6617786fa1765133e3d26b79bc)] -> xpath: //button[text()='Next']] has been clicked  successfully 
+02 08 2020 12:06:32.389 [main] DEBUG zoomCar.Selenium.base.SeleniumBase - Element [[ChromeDriver: chrome on WINDOWS (e25b2e6617786fa1765133e3d26b79bc)] -> xpath: //div[text()='DROP OFF TIME']] is displayed in DOM
+02 08 2020 12:06:33.042 [main] DEBUG zoomCar.Selenium.base.SeleniumBase - Successfully clicked element: [[ChromeDriver: chrome on WINDOWS (e25b2e6617786fa1765133e3d26b79bc)] -> css selector: div.day]
+02 08 2020 12:06:33.042 [main] DEBUG zoomCar.Selenium.base.SeleniumBase - The element: [[ChromeDriver: chrome on WINDOWS (e25b2e6617786fa1765133e3d26b79bc)] -> css selector: div.day] has been clicked  successfully 
+02 08 2020 12:06:33.807 [main] DEBUG zoomCar.Selenium.base.SeleniumBase - Successfully clicked element: [[ChromeDriver: chrome on WINDOWS (e25b2e6617786fa1765133e3d26b79bc)] -> css selector: .proceed]
+02 08 2020 12:06:33.808 [main] DEBUG zoomCar.Selenium.base.SeleniumBase - The element: [[ChromeDriver: chrome on WINDOWS (e25b2e6617786fa1765133e3d26b79bc)] -> css selector: .proceed] has been clicked  successfully 
+02 08 2020 12:06:39.796 [main] DEBUG zoomCar.Selenium.base.SeleniumBase - Element [[ChromeDriver: chrome on WINDOWS (e25b2e6617786fa1765133e3d26b79bc)] -> css selector: .car-amount div[class*='price']] text: ₹ 11,903extracted successfully
+02 08 2020 12:06:39.797 [main] INFO  zoomCar.Selenium.base.SeleniumBase - The extracted car price is:₹11903
+02 08 2020 12:06:39.824 [main] DEBUG zoomCar.Selenium.base.SeleniumBase - Element [[ChromeDriver: chrome on WINDOWS (e25b2e6617786fa1765133e3d26b79bc)] -> css selector: .car-amount div[class*='price']] text: ₹ 15,650extracted successfully
+02 08 2020 12:06:39.824 [main] INFO  zoomCar.Selenium.base.SeleniumBase - The extracted car price is:₹15650
+02 08 2020 12:06:39.849 [main] DEBUG zoomCar.Selenium.base.SeleniumBase - Element [[ChromeDriver: chrome on WINDOWS (e25b2e6617786fa1765133e3d26b79bc)] -> css selector: .car-amount div[class*='price']] text: ₹ 13,085extracted successfully
+02 08 2020 12:06:39.849 [main] INFO  zoomCar.Selenium.base.SeleniumBase - The extracted car price is:₹13085
+02 08 2020 12:06:39.875 [main] DEBUG zoomCar.Selenium.base.SeleniumBase - Element [[ChromeDriver: chrome on WINDOWS (e25b2e6617786fa1765133e3d26b79bc)] -> css selector: .car-amount div[class*='price']] text: ₹ 15,196extracted successfully
+02 08 2020 12:06:39.876 [main] INFO  zoomCar.Selenium.base.SeleniumBase - The extracted car price is:₹15196
+02 08 2020 12:06:39.903 [main] DEBUG zoomCar.Selenium.base.SeleniumBase - Element [[ChromeDriver: chrome on WINDOWS (e25b2e6617786fa1765133e3d26b79bc)] -> css selector: .car-amount div[class*='price']] text: ₹ 16,509extracted successfully
+02 08 2020 12:06:39.903 [main] INFO  zoomCar.Selenium.base.SeleniumBase - The extracted car price is:₹16509
+02 08 2020 12:06:39.930 [main] DEBUG zoomCar.Selenium.base.SeleniumBase - Element [[ChromeDriver: chrome on WINDOWS (e25b2e6617786fa1765133e3d26b79bc)] -> css selector: .car-amount div[class*='price']] text: ₹ 14,171extracted successfully
+02 08 2020 12:06:39.930 [main] INFO  zoomCar.Selenium.base.SeleniumBase - The extracted car price is:₹14171
+02 08 2020 12:06:39.957 [main] DEBUG zoomCar.Selenium.base.SeleniumBase - Element [[ChromeDriver: chrome on WINDOWS (e25b2e6617786fa1765133e3d26b79bc)] -> css selector: .car-amount div[class*='price']] text: ₹ 17,697extracted successfully
+02 08 2020 12:06:39.958 [main] INFO  zoomCar.Selenium.base.SeleniumBase - The extracted car price is:₹17697
+02 08 2020 12:06:39.984 [main] DEBUG zoomCar.Selenium.base.SeleniumBase - Element [[ChromeDriver: chrome on WINDOWS (e25b2e6617786fa1765133e3d26b79bc)] -> css selector: .car-amount div[class*='price']] text: ₹ 12,628extracted successfully
+02 08 2020 12:06:39.984 [main] INFO  zoomCar.Selenium.base.SeleniumBase - The extracted car price is:₹12628
+02 08 2020 12:06:40.020 [main] DEBUG zoomCar.Selenium.base.SeleniumBase - Successfully scrolled into view to the max-price web-element : [[ChromeDriver: chrome on WINDOWS (e25b2e6617786fa1765133e3d26b79bc)] -> css selector: .car-amount div[class*='price']]
+02 08 2020 12:06:40.058 [main] INFO  zoomCar.Selenium.base.SeleniumBase - Successfully highlighted max  price element in blue: [[ChromeDriver: chrome on WINDOWS (e25b2e6617786fa1765133e3d26b79bc)] -> css selector: .car-amount div[class*='price']]
+02 08 2020 12:06:43.059 [main] INFO  zoomCar.Selenium.base.SeleniumBase - The max posible price of available cars is: ₹17697
+02 08 2020 12:06:43.100 [main] DEBUG zoomCar.Selenium.base.SeleniumBase - Element [[ChromeDriver: chrome on WINDOWS (e25b2e6617786fa1765133e3d26b79bc)] -> css selector: .details h3] text: Nissan Kicks (Petrol)extracted successfully
+02 08 2020 12:06:43.101 [main] INFO  zoomCar.Selenium.base.SeleniumBase - The car with the highest price is: Nissan Kicks (Petrol)
+02 08 2020 12:06:44.298 [main] DEBUG zoomCar.Selenium.base.SeleniumBase - Successfully closed all the browsers
